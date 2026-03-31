@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>J. Ednieds Ltd — From Lagos to London</title>
+<title>J. Ednieds Ltd — From Lagos to London | jednieds.org</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -21,14 +21,9 @@ body {
   font-family: 'DM Sans', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
-  cursor: none;
 }
 
-/* CURSOR */
-.cursor { width:10px;height:10px;background:var(--white);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:difference; }
-.cursor-ring { width:36px;height:36px;border:1px solid rgba(245,245,240,0.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s; }
-.cursor.hover { width:20px;height:20px; }
-.cursor-ring.hover { width:60px;height:60px; }
+
 
 /* NAV */
 nav {
@@ -195,9 +190,9 @@ section { padding:120px 60px; }
 .form-group input,.form-group textarea,.form-group select { width:100%;background:rgba(245,245,240,0.04);border:1px solid rgba(245,245,240,0.1);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;padding:13px 16px;outline:none;transition:border-color .3s;appearance:none; }
 .form-group input:focus,.form-group textarea:focus,.form-group select:focus { border-color:rgba(245,245,240,0.38); }
 .form-group textarea { height:110px;resize:none; }
-.form-group select { background-color:#111;cursor:none; }
+.form-group select { background-color:#111; }
 .form-row { display:grid;grid-template-columns:1fr 1fr;gap:14px; }
-.form-submit { width:100%;padding:15px;background:var(--white);color:var(--black);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;border:none;cursor:none;transition:transform .3s,box-shadow .3s; }
+.form-submit { width:100%;padding:15px;background:var(--white);color:var(--black);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s; }
 .form-submit:hover { transform:translateY(-2px);box-shadow:0 8px 30px rgba(245,245,240,0.15); }
 
 /* FOOTER */
@@ -287,9 +282,6 @@ footer { background:var(--black);border-top:1px solid var(--border);padding:60px
 </style>
 </head>
 <body>
-
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -548,14 +540,14 @@ footer { background:var(--black);border-top:1px solid var(--border);padding:60px
         <div class="contact-icon">✉</div>
         <div>
           <div class="contact-label">Email</div>
-          <div class="contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6f070a0303002f050a0b01060a0b1c410c00411a04">[email&#160;protected]</a></div>
+          <div class="contact-value">hello@jednieds.org</div>
         </div>
       </div>
       <div class="contact-item">
         <div class="contact-icon">☏</div>
         <div>
           <div class="contact-label">Phone</div>
-          <div class="contact-value">+44 (0) 000 000 0000</div>
+          <div class="contact-value">07747 226904 (SMS only)</div>
         </div>
       </div>
       <div class="contact-item">
@@ -569,7 +561,7 @@ footer { background:var(--black);border-top:1px solid var(--border);padding:60px
         <div class="contact-icon">⊞</div>
         <div>
           <div class="contact-label">Registered</div>
-          <div class="contact-value">J. Ednieds Ltd — England &amp; Wales</div>
+          <div class="contact-value">J. Ednieds Ltd — England &amp; Wales<br><a href="https://www.jednieds.org" style="color:rgba(245,245,240,0.5);font-size:13px;">www.jednieds.org</a></div>
         </div>
       </div>
     </div>
@@ -626,9 +618,8 @@ footer { background:var(--black);border-top:1px solid var(--border);padding:60px
     <div class="footer-col">
       <h4>Connect</h4>
       <ul>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">YouTube</a></li>
+        <li><a href="https://www.instagram.com/jednieds" target="_blank">Instagram</a></li>
+        <li><a href="https://www.x.com/jednieds" target="_blank">X (Twitter)</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -640,16 +631,7 @@ footer { background:var(--black);border-top:1px solid var(--border);padding:60px
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Cursor
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
-(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
-document.querySelectorAll('a,button,.service-card,.venture-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cursor.classList.add('hover');ring.classList.add('hover');});
-  el.addEventListener('mouseleave',()=>{cursor.classList.remove('hover');ring.classList.remove('hover');});
-});
+
 
 // Navbar
 const nav = document.getElementById('navbar');
