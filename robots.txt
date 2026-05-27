@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /index1.html
+
+Sitemap: https://www.jednieds.org/sitemap.xml

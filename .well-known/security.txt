@@ -1,0 +1,4 @@
+Contact: mailto:hello@jednieds.org
+Preferred-Languages: en
+Canonical: https://www.jednieds.org/.well-known/security.txt
+Policy: https://www.jednieds.org/

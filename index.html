@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index, follow">
 <title>J. Ednieds Ltd | From Lagos to London</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -355,6 +358,8 @@ section{padding:120px 60px;}
   transition:transform .3s,box-shadow .3s;
 }
 .form-submit:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(244,242,237,0.14);}
+.form-honeypot{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.form-status{font-size:12px;color:var(--dim);margin-top:12px;min-height:18px;}
 
 /* =========== FOOTER =========== */
 footer{background:var(--off-black);border-top:1px solid var(--border);padding:56px 60px 38px;}
@@ -500,20 +505,20 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
     <li><a href="#story">Our Story</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="mobile-menu-btn" id="menuBtn" onclick="openMobileNav()" aria-label="Open menu">
+  <button class="mobile-menu-btn" id="menuBtn" type="button" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav-close" onclick="closeMobileNav()">&#x2715;</button>
-  <a href="#about" onclick="closeMobileNav()">About</a>
-  <a href="#services" onclick="closeMobileNav()">Products</a>
-  <a href="#ecosystem" onclick="closeMobileNav()">Ecosystem</a>
-  <a href="#ventures" onclick="closeMobileNav()">Ventures</a>
-  <a href="#story" onclick="closeMobileNav()">Our Story</a>
-  <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  <button class="mobile-nav-close" id="mobileNavClose" type="button" aria-label="Close menu">&#x2715;</button>
+  <a href="#about" data-close-nav>About</a>
+  <a href="#services" data-close-nav>Products</a>
+  <a href="#ecosystem" data-close-nav>Ecosystem</a>
+  <a href="#ventures" data-close-nav>Ventures</a>
+  <a href="#story" data-close-nav>Our Story</a>
+  <a href="#contact" data-close-nav>Contact</a>
 </div>
 
 <!-- HERO -->
@@ -680,9 +685,9 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
     <span class="live-label">Live Products</span>
     <span class="live-free-badge">Free to use</span>
     <div class="live-products">
-      <a href="https://www.presenceiq.app" target="_blank" class="live-product-link">PresenceIQ &#x2197;</a>
-      <a href="https://www.transportteam.app" target="_blank" class="live-product-link">TransportTeam &#x2197;</a>
-      <a href="https://communitymarket.jednieds.org" target="_blank" class="live-product-link">Community Market &#x2197;</a>
+      <a href="https://www.presenceiq.app" target="_blank" rel="noopener noreferrer" class="live-product-link">PresenceIQ &#x2197;</a>
+      <a href="https://www.transportteam.app" target="_blank" rel="noopener noreferrer" class="live-product-link">TransportTeam &#x2197;</a>
+      <a href="https://communitymarket.jednieds.org" target="_blank" rel="noopener noreferrer" class="live-product-link">Community Market &#x2197;</a>
     </div>
   </div>
 
@@ -702,7 +707,7 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
   </div>
 
   <div class="ventures-grid">
-    <a href="https://www.presenceiq.app" target="_blank" class="venture-card venture-card--live">
+    <a href="https://www.presenceiq.app" target="_blank" rel="noopener noreferrer" class="venture-card venture-card--live">
       <div class="venture-inner">
         <div class="venture-live-badge">&#x25CF; Live - Free</div>
         <span class="venture-tag">SaaS - Attendance Tech</span>
@@ -711,7 +716,7 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
         <span class="venture-arrow">&#x2197;</span>
       </div>
     </a>
-    <a href="https://www.transportteam.app" target="_blank" class="venture-card venture-card--live">
+    <a href="https://www.transportteam.app" target="_blank" rel="noopener noreferrer" class="venture-card venture-card--live">
       <div class="venture-inner">
         <div class="venture-live-badge">&#x25CF; Live - Free</div>
         <span class="venture-tag">SaaS - Transport Coordination</span>
@@ -720,7 +725,7 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
         <span class="venture-arrow">&#x2197;</span>
       </div>
     </a>
-    <a href="https://communitymarket.jednieds.org" target="_blank" class="venture-card venture-card--live">
+    <a href="https://communitymarket.jednieds.org" target="_blank" rel="noopener noreferrer" class="venture-card venture-card--live">
       <div class="venture-inner">
         <div class="venture-live-badge">&#x25CF; Live - Free</div>
         <span class="venture-tag">SaaS - Community Marketplace</span>
@@ -848,14 +853,19 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
       </div>
     </div>
     <div>
-      <div class="form-row">
-        <div class="form-group"><label>First Name</label><input type="text" placeholder="Your first name"></div>
-        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Your last name"></div>
+      <form id="contactForm" class="contact-form" novalidate>
+      <div class="form-honeypot" aria-hidden="true">
+        <label for="contactWebsite">Website</label>
+        <input type="text" id="contactWebsite" name="website" tabindex="-1" autocomplete="off">
       </div>
-      <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+      <div class="form-row">
+        <div class="form-group"><label for="contactFirstName">First Name</label><input type="text" id="contactFirstName" name="firstName" placeholder="Your first name" maxlength="100" autocomplete="given-name" required></div>
+        <div class="form-group"><label for="contactLastName">Last Name</label><input type="text" id="contactLastName" name="lastName" placeholder="Your last name" maxlength="100" autocomplete="family-name" required></div>
+      </div>
+      <div class="form-group"><label for="contactEmail">Email Address</label><input type="email" id="contactEmail" name="email" placeholder="your@email.com" maxlength="254" autocomplete="email" required></div>
       <div class="form-group">
-        <label>Enquiry Type</label>
-        <select>
+        <label for="contactEnquiry">Enquiry Type</label>
+        <select id="contactEnquiry" name="enquiry" required>
           <option value="">Select an enquiry type</option>
           <option>PresenceIQ - Attendance Platform</option>
           <option>TransportTeam - Transport Coordination</option>
@@ -869,8 +879,10 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
           <option>General Enquiry</option>
         </select>
       </div>
-      <div class="form-group"><label>Message</label><textarea placeholder="Tell us what you are working on..."></textarea></div>
-      <button class="form-submit">Send Enquiry &#x2192;</button>
+      <div class="form-group"><label for="contactMessage">Message</label><textarea id="contactMessage" name="message" placeholder="Tell us what you are working on..." maxlength="2000" required></textarea></div>
+      <button class="form-submit" type="submit">Send Enquiry &#x2192;</button>
+      <p class="form-status" id="contactFormStatus" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </div>
 </section>
@@ -893,17 +905,17 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
     <div class="footer-col">
       <h4>Products</h4>
       <ul>
-        <li><a href="https://www.presenceiq.app" target="_blank">PresenceIQ</a></li>
-        <li><a href="https://www.transportteam.app" target="_blank">TransportTeam</a></li>
-        <li><a href="https://communitymarket.jednieds.org" target="_blank">Community Market</a></li>
+        <li><a href="https://www.presenceiq.app" target="_blank" rel="noopener noreferrer">PresenceIQ</a></li>
+        <li><a href="https://www.transportteam.app" target="_blank" rel="noopener noreferrer">TransportTeam</a></li>
+        <li><a href="https://communitymarket.jednieds.org" target="_blank" rel="noopener noreferrer">Community Market</a></li>
         <li><a href="#contact">Aquagroove - 6 June</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Connect</h4>
       <ul>
-        <li><a href="https://www.instagram.com/jednieds" target="_blank">Instagram</a></li>
-        <li><a href="https://www.x.com/jednieds" target="_blank">X (Twitter)</a></li>
+        <li><a href="https://www.instagram.com/jednieds" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://www.x.com/jednieds" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -911,7 +923,7 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
   <div class="footer-bottom">
     <div class="footer-legal">
       &copy; 2025 J. Ednieds Ltd. All rights reserved.
-      &middot; <a href="#" onclick="openCookiePolicy(event)" style="color:rgba(244,242,237,0.32);text-decoration:none;">Cookie Policy</a><br>
+      &middot; <a href="#" id="footerCookiePolicyLink" style="color:rgba(244,242,237,0.32);text-decoration:none;">Cookie Policy</a><br>
       Registered in England and Wales.
     </div>
     <div class="footer-reg">
@@ -924,41 +936,54 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
 <!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookieBanner">
   <p class="cookie-text">
-    We use essential cookies to make this site work. We do not use tracking or advertising cookies.
-    By clicking <strong>Accept</strong> you agree to our use of essential cookies.
-    <a href="#" onclick="openCookiePolicy(event)">Read our Cookie Policy</a>.
+    We store your cookie preference locally in your browser. We do not use tracking or advertising cookies.
+    By clicking <strong>Accept</strong> you agree to our use of this essential preference storage.
+    <a href="#" id="cookiePolicyLink">Read our Cookie Policy</a>.
   </p>
   <div class="cookie-buttons">
-    <button class="cookie-accept" onclick="acceptCookies()">Accept</button>
-    <button class="cookie-reject" onclick="rejectCookies()">Reject Non-Essential</button>
+    <button class="cookie-accept" id="cookieAcceptBtn" type="button">Accept</button>
+    <button class="cookie-reject" id="cookieRejectBtn" type="button">Reject Non-Essential</button>
   </div>
 </div>
 
 <!-- COOKIE POLICY -->
 <div class="cookie-policy" id="cookiePolicy">
-  <button class="cookie-policy-close" onclick="closeCookiePolicy()">&#x2715; Close</button>
+  <button class="cookie-policy-close" id="cookiePolicyCloseBtn" type="button" aria-label="Close cookie policy">&#x2715; Close</button>
   <div class="cookie-policy-inner">
     <h1>Cookie Policy</h1>
-    <p class="policy-meta">J. Ednieds Ltd &nbsp;&middot;&nbsp; Last updated: January 2025</p>
+    <p class="policy-meta">J. Ednieds Ltd &nbsp;&middot;&nbsp; Last updated: May 2026</p>
     <h2>What are cookies?</h2>
     <p>Cookies are small text files placed on your device when you visit a website. They help the site remember information about your visit.</p>
     <h2>Who we are</h2>
     <p>This Cookie Policy applies to <strong>www.jednieds.org</strong>, operated by <strong>J. Ednieds Ltd</strong>, registered in England and Wales. Contact: <a href="mailto:hello@jednieds.org">hello@jednieds.org</a>.</p>
-    <h2>What cookies we use</h2>
+    <h2>What we store</h2>
     <table class="cookie-table">
-      <thead><tr><th>Cookie Name</th><th>Type</th><th>Purpose</th><th>Duration</th></tr></thead>
-      <tbody><tr><td>je_cookie_consent</td><td>Essential</td><td>Remembers your cookie consent choice</td><td>12 months</td></tr></tbody>
+      <thead><tr><th>Storage Key</th><th>Type</th><th>Purpose</th><th>Duration</th></tr></thead>
+      <tbody><tr><td>je_cookie_consent</td><td>Essential (browser local storage)</td><td>Remembers your cookie consent choice</td><td>Until cleared</td></tr></tbody>
     </table>
     <h2>What we do NOT use</h2>
     <p>We do not use analytics, advertising, social media, or any third-party tracking cookies.</p>
     <h2>Your rights under UK law</h2>
-    <p>Under PECR and UK GDPR you have the right to be informed about cookies, accept or reject non-essential cookies, and withdraw consent at any time by clearing your browser cookies.</p>
+    <p>Under PECR and UK GDPR you have the right to be informed about cookies and similar storage, accept or reject non-essential storage, and withdraw consent at any time by clearing your browser site data for jednieds.org.</p>
     <h2>Contact us</h2>
     <p>Questions? Email <a href="mailto:hello@jednieds.org">hello@jednieds.org</a>.</p>
   </div>
 </div>
 
 <script>
+const CONTACT_EMAIL = 'hello@jednieds.org';
+
+function sanitizeField(value, maxLength) {
+  return String(value || '')
+    .replace(/[\r\n\t<>]/g, ' ')
+    .trim()
+    .slice(0, maxLength);
+}
+
+function isValidEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
 // Navbar scroll
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -972,38 +997,96 @@ window.addEventListener('scroll', () => {
 });
 
 // Mobile nav
+const mobileNav = document.getElementById('mobileNav');
 function openMobileNav() {
-  document.getElementById('mobileNav').classList.add('open');
+  mobileNav.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 function closeMobileNav() {
-  document.getElementById('mobileNav').classList.remove('open');
+  mobileNav.classList.remove('open');
   document.body.style.overflow = '';
 }
 
-// Cookie consent
-(function(){
-  if (!localStorage.getItem('je_cookie_consent')) {
-    setTimeout(() => document.getElementById('cookieBanner').classList.add('visible'), 1400);
+document.getElementById('menuBtn').addEventListener('click', openMobileNav);
+document.getElementById('mobileNavClose').addEventListener('click', closeMobileNav);
+document.querySelectorAll('[data-close-nav]').forEach((link) => {
+  link.addEventListener('click', closeMobileNav);
+});
+
+// Contact form
+const contactForm = document.getElementById('contactForm');
+const contactFormStatus = document.getElementById('contactFormStatus');
+
+contactForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  contactFormStatus.textContent = '';
+
+  if (contactForm.website.value) {
+    return;
   }
-})();
+
+  const firstName = sanitizeField(contactForm.firstName.value, 100);
+  const lastName = sanitizeField(contactForm.lastName.value, 100);
+  const email = sanitizeField(contactForm.email.value, 254);
+  const enquiry = sanitizeField(contactForm.enquiry.value, 120);
+  const message = sanitizeField(contactForm.message.value, 2000);
+
+  if (!firstName || !lastName || !enquiry || !message) {
+    contactFormStatus.textContent = 'Please complete all required fields.';
+    return;
+  }
+
+  if (!isValidEmail(email)) {
+    contactFormStatus.textContent = 'Please enter a valid email address.';
+    return;
+  }
+
+  const subject = encodeURIComponent('Website enquiry: ' + enquiry);
+  const body = encodeURIComponent(
+    'Name: ' + firstName + ' ' + lastName + '\n' +
+    'Email: ' + email + '\n' +
+    'Enquiry type: ' + enquiry + '\n\n' +
+    message
+  );
+
+  window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+  contactFormStatus.textContent = 'Opening your email app to send this enquiry.';
+});
+
+// Cookie consent
+const cookieBanner = document.getElementById('cookieBanner');
+const cookiePolicy = document.getElementById('cookiePolicy');
+
+if (!localStorage.getItem('je_cookie_consent')) {
+  setTimeout(() => cookieBanner.classList.add('visible'), 1400);
+}
+
 function acceptCookies() {
   localStorage.setItem('je_cookie_consent', 'accepted');
-  document.getElementById('cookieBanner').classList.remove('visible');
+  cookieBanner.classList.remove('visible');
 }
+
 function rejectCookies() {
   localStorage.setItem('je_cookie_consent', 'rejected');
-  document.getElementById('cookieBanner').classList.remove('visible');
+  cookieBanner.classList.remove('visible');
 }
-function openCookiePolicy(e) {
-  e.preventDefault();
-  document.getElementById('cookiePolicy').classList.add('open');
+
+function openCookiePolicy(event) {
+  if (event) event.preventDefault();
+  cookiePolicy.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
+
 function closeCookiePolicy() {
-  document.getElementById('cookiePolicy').classList.remove('open');
+  cookiePolicy.classList.remove('open');
   document.body.style.overflow = '';
 }
+
+document.getElementById('cookieAcceptBtn').addEventListener('click', acceptCookies);
+document.getElementById('cookieRejectBtn').addEventListener('click', rejectCookies);
+document.getElementById('cookiePolicyCloseBtn').addEventListener('click', closeCookiePolicy);
+document.getElementById('cookiePolicyLink').addEventListener('click', openCookiePolicy);
+document.getElementById('footerCookiePolicyLink').addEventListener('click', openCookiePolicy);
 </script>
 </body>
 </html>
