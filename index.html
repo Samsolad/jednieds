@@ -287,6 +287,9 @@ section{padding:120px 60px;}
 .venture-card:hover .venture-live-badge,
 .venture-card:hover .venture-pipeline-badge,
 .venture-card:hover .venture-upcoming-badge,
+.venture-card:hover .venture-construction-badge,
+.venture-card:hover .venture-working-badge,
+.venture-card:hover .venture-delivered-badge,
 .venture-card:hover .venture-name,
 .venture-card:hover .venture-desc,
 .venture-card:hover .venture-arrow{color:var(--black);}
@@ -304,6 +307,11 @@ section{padding:120px 60px;}
 .venture-card--other .venture-desc{font-size:12px;}
 .venture-card--upcoming{border-color:rgba(244,242,237,0.14);}
 .venture-upcoming-badge{font-size:10px;letter-spacing:0.2em;color:var(--white);margin-bottom:10px;transition:color .3s;}
+.venture-construction-badge{font-size:10px;letter-spacing:0.2em;color:var(--white);margin-bottom:10px;transition:color .3s;}
+.venture-working-badge{font-size:10px;letter-spacing:0.2em;color:var(--green);margin-bottom:10px;transition:color .3s;}
+.venture-delivered-badge{font-size:10px;letter-spacing:0.2em;color:rgba(244,242,237,0.55);margin-bottom:10px;transition:color .3s;}
+.venture-card--construction{border-color:rgba(244,242,237,0.14);}
+.venture-card--delivered{border-color:rgba(244,242,237,0.12);}
 .venture-card--blocked{
   opacity:0.28;pointer-events:none;filter:grayscale(1);
   border-color:rgba(244,242,237,0.05);border-style:dashed;
@@ -560,7 +568,7 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
     </div>
     <div class="about-stats">
       <div class="stat-box">
-        <div class="stat-number">3</div>
+        <div class="stat-number">2</div>
         <div class="stat-label">Live Products</div>
       </div>
       <div class="stat-box">
@@ -665,7 +673,7 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
       "Technology can unlock economic opportunity for the African diaspora - if it is built specifically for them."
     </div>
     <div class="vision-body">
-      <p>Every product J. Ednieds builds maps to one of the four Ajala pillars. PresenceIQ and TransportTeam serve Community Infrastructure. Community Market serves Career and Income. More ventures are in the pipeline.</p>
+      <p>Every product J. Ednieds builds maps to one of the four Ajala pillars. TransportTeam serves Community Infrastructure. Community Market serves Career and Income. PresenceIQ is under construction. More ventures are in the pipeline.</p>
       <p>The goal is not to build one product. The goal is to build the infrastructure layer that powers diaspora life - from Lagos to London and every city in between.</p>
       <a href="#ventures" class="btn-secondary" style="margin-top:8px;display:inline-block;">See All Products</a>
     </div>
@@ -685,7 +693,6 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
     <span class="live-label">Live Products</span>
     <span class="live-free-badge">Free to use</span>
     <div class="live-products">
-      <a href="https://www.presenceiq.app" target="_blank" rel="noopener noreferrer" class="live-product-link">PresenceIQ &#x2197;</a>
       <a href="https://www.transportteam.app" target="_blank" rel="noopener noreferrer" class="live-product-link">TransportTeam &#x2197;</a>
       <a href="https://communitymarket.jednieds.org" target="_blank" rel="noopener noreferrer" class="live-product-link">Community Market &#x2197;</a>
     </div>
@@ -693,29 +700,24 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
 
   <div class="ventures-ticker">
     <div class="ticker-track">
-      <span class="ticker-item">PRESENCEIQ</span>
       <span class="ticker-item">TRANSPORTTEAM</span>
       <span class="ticker-item">COMMUNITY MARKET</span>
+      <span class="ticker-item">PRESENCEIQ</span>
+      <span class="ticker-item">ALADUN</span>
+      <span class="ticker-item">CAKEAWAY</span>
       <span class="ticker-item">AQUAGROOVE</span>
       <span class="ticker-item">DIASPORA CLOTHING</span>
-      <span class="ticker-item">PRESENCEIQ</span>
       <span class="ticker-item">TRANSPORTTEAM</span>
       <span class="ticker-item">COMMUNITY MARKET</span>
+      <span class="ticker-item">PRESENCEIQ</span>
+      <span class="ticker-item">ALADUN</span>
+      <span class="ticker-item">CAKEAWAY</span>
       <span class="ticker-item">AQUAGROOVE</span>
       <span class="ticker-item">DIASPORA CLOTHING</span>
     </div>
   </div>
 
   <div class="ventures-grid">
-    <a href="https://www.presenceiq.app" target="_blank" rel="noopener noreferrer" class="venture-card venture-card--live">
-      <div class="venture-inner">
-        <div class="venture-live-badge">&#x25CF; Live - Free</div>
-        <span class="venture-tag">SaaS - Attendance Tech</span>
-        <h3 class="venture-name">PresenceIQ</h3>
-        <p class="venture-desc">Scan. Tap. Done. QR-based attendance tracking for churches, schools, and community organisations. No app needed. Automated follow-ups. Free to use now.</p>
-        <span class="venture-arrow">&#x2197;</span>
-      </div>
-    </a>
     <a href="https://www.transportteam.app" target="_blank" rel="noopener noreferrer" class="venture-card venture-card--live">
       <div class="venture-inner">
         <div class="venture-live-badge">&#x25CF; Live - Free</div>
@@ -734,12 +736,40 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
         <span class="venture-arrow">&#x2197;</span>
       </div>
     </a>
-    <a href="#contact" class="venture-card venture-card--upcoming">
+    <a href="https://www.presenceiq.app" target="_blank" rel="noopener noreferrer" class="venture-card venture-card--construction">
       <div class="venture-inner">
-        <div class="venture-upcoming-badge">&#x25CF; Next Event - 6 June 2026</div>
+        <div class="venture-construction-badge">&#x25CB; Under Construction</div>
+        <span class="venture-tag">SaaS - Attendance Tech</span>
+        <h3 class="venture-name">PresenceIQ</h3>
+        <p class="venture-desc">Scan. Tap. Done. QR-based attendance tracking for churches, schools, and community organisations. No app needed. Automated follow-ups. Currently being rebuilt.</p>
+        <span class="venture-arrow">&#x2197;</span>
+      </div>
+    </a>
+    <div class="ventures-other-label">MSME Tech Solutions</div>
+    <a href="https://aladun.jednieds.org" target="_blank" rel="noopener noreferrer" class="venture-card venture-card--live">
+      <div class="venture-inner">
+        <div class="venture-working-badge">&#x25CF; Working</div>
+        <span class="venture-tag">Client Delivery - MSME Consultancy</span>
+        <h3 class="venture-name">Aladun</h3>
+        <p class="venture-desc">A live client platform delivered through our MSME tech consultancy arm. Built, deployed, and actively supported for day-to-day operations.</p>
+        <span class="venture-arrow">&#x2197;</span>
+      </div>
+    </a>
+    <a href="https://cakeawaytreats.com" target="_blank" rel="noopener noreferrer" class="venture-card venture-card--delivered">
+      <div class="venture-inner">
+        <div class="venture-delivered-badge">&#x25CF; Delivered</div>
+        <span class="venture-tag">Client Delivery - MSME Consultancy</span>
+        <h3 class="venture-name">Cakeaway</h3>
+        <p class="venture-desc">Done and delivered. A complete tech solution built for an MSME client through our consultancy arm - from concept to launch.</p>
+        <span class="venture-arrow">&#x2197;</span>
+      </div>
+    </a>
+    <a href="https://aquagroove.co.uk" target="_blank" rel="noopener noreferrer" class="venture-card venture-card--upcoming">
+      <div class="venture-inner">
+        <div class="venture-upcoming-badge">&#x25CF; Next Event - 12 September 2026</div>
         <span class="venture-tag">Events and Wellness</span>
         <h3 class="venture-name">Aquagroove</h3>
-        <p class="venture-desc">A travelling cultural wellness brand - community swim sessions, African and Caribbean dance, and cultural mixers. Join us on 6 June.</p>
+        <p class="venture-desc">A travelling cultural wellness brand - community swim sessions, African and Caribbean dance, and cultural mixers. Join us on 12 September.</p>
         <span class="venture-arrow">&#x2197;</span>
       </div>
     </a>
@@ -809,7 +839,7 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
         </div>
         <div class="value-item">
           <div class="value-title">Execution Over Talk</div>
-          <div class="value-text">We ship. PresenceIQ, TransportTeam and Community Market are live. The pipeline is moving.</div>
+          <div class="value-text">We ship. TransportTeam and Community Market are live. PresenceIQ is under construction. Aladun is working. Cakeaway delivered for MSME clients.</div>
         </div>
       </div>
     </div>
@@ -867,11 +897,13 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
         <label for="contactEnquiry">Enquiry Type</label>
         <select id="contactEnquiry" name="enquiry" required>
           <option value="">Select an enquiry type</option>
-          <option>PresenceIQ - Attendance Platform</option>
+          <option>PresenceIQ - Under Construction</option>
           <option>TransportTeam - Transport Coordination</option>
           <option>Community Market - Advertiser Enquiry</option>
           <option>Community Market - Affiliate Enquiry</option>
-          <option>Aquagroove - 6 June Event</option>
+          <option>MSME Tech Solutions - Aladun</option>
+          <option>MSME Tech Solutions - Cakeaway</option>
+          <option>Aquagroove - 12 September Event</option>
           <option>Diaspora Clothing - Waitlist</option>
           <option>Partnerships and Investment</option>
           <option>Press and Media</option>
@@ -905,10 +937,12 @@ footer{background:var(--off-black);border-top:1px solid var(--border);padding:56
     <div class="footer-col">
       <h4>Products</h4>
       <ul>
-        <li><a href="https://www.presenceiq.app" target="_blank" rel="noopener noreferrer">PresenceIQ</a></li>
+        <li><a href="https://www.presenceiq.app" target="_blank" rel="noopener noreferrer">PresenceIQ (Under Construction)</a></li>
         <li><a href="https://www.transportteam.app" target="_blank" rel="noopener noreferrer">TransportTeam</a></li>
         <li><a href="https://communitymarket.jednieds.org" target="_blank" rel="noopener noreferrer">Community Market</a></li>
-        <li><a href="#contact">Aquagroove - 6 June</a></li>
+        <li><a href="https://aladun.jednieds.org" target="_blank" rel="noopener noreferrer">Aladun</a></li>
+        <li><a href="https://cakeawaytreats.com" target="_blank" rel="noopener noreferrer">Cakeaway</a></li>
+        <li><a href="https://aquagroove.co.uk" target="_blank" rel="noopener noreferrer">Aquagroove - 12 September</a></li>
       </ul>
     </div>
     <div class="footer-col">
